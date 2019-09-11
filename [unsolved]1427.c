@@ -25,7 +25,7 @@ int main()
         for(j = head; j <= tail; j++) {
             if(digit[j] < digit[minIdx])
                 minIdx = j;
-            else if(digit[j] > digit[maxIdx])
+            if(digit[j] > digit[maxIdx])
                 maxIdx = j;
         }
         tmp = digit[head];
