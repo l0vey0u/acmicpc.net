@@ -1,8 +1,18 @@
 T = int(input())
-p = []
-dp = [0 for _ in range(T+1)]
+scr = []
 for _ in range(T):
-    p.append(int(input()))
+    scr.append(int(input()))
+dp = [ 0 for _ in range(T+1) ]
 for n in range(1, T+1):
-    dp[n] = max(dp[n-2], dp[n-1]) + p[n-1]
-print(dp[T]) 
+    dp[n] = scr[n-1]
+    if n == 1:
+        continue
+    if n == 2:
+        if T != 3:
+            dp[n] += scr[n-2]
+            continue
+    if scr[n-2] > scr[n-3]:
+        dp[n] += dp[n-1]
+    else:
+        dp[n] += dp[n-2]
+print(dp[T])
